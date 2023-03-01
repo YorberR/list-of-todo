@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-// eslint-disable-next-line no-unused-vars
-import style from "./styles/index.css"
+import App from "./App/index.jsx";
+import style from "./style.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);

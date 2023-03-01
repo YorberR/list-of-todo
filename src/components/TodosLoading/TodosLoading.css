@@ -1,0 +1,59 @@
+
+.LoadingTodo-container {
+    position: relative;
+    width: 100%;
+    min-height: 60px;
+    border-radius: 20px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+}
+
+.LoadingTodo-text {
+    width: calc(100% - 120px);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: white;
+}
+
+.LoadingTodo-completeIcon,
+.LoadingTodo-deleteIcon {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+}
+
+.LoadingTodo-completeIcon {
+    left: 0;
+}
+
+.LoadingTodo-deleteIcon {
+    position: absolute;
+    right: 0;
+}
+
+.LoadingTodo-container {
+    background: #868585;
+    background-size: 400% 400%;
+    animation: loadingAnimation 3s ease-in-out infinite;
+}
+
+@keyframes loadingAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
