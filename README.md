@@ -1,3 +1,27 @@
+# Repositorio de un proyecto personal de un TODO
+
+Este repositorio contiene un proyecto personal de una aplicación de lista de tareas (TODO) desarrollada con React. El link para ver el proyecto [Aqui](https://yorberr.github.io/list-of-todo/).
+
+## Características
+
+- Crear, editar y eliminar tareas.
+- Marcar las tareas como completadas o pendientes.
+- Buscar tareas por texto.
+
+## Contribución
+
+Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
+
+1. Realiza un fork del repositorio.
+2. Crea una nueva rama con tu contribución: git checkout -b feature/nueva-funcionalidad
+3. Realiza tus cambios y haz commit: git commit -m "Agrega nueva funcionalidad"
+4. Sube tus cambios a tu fork: git push origin feature/nueva-funcionalidad
+5. Crea un pull request a la rama principal del repositorio original.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Por favor lee el archivo LICENSE para más información.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

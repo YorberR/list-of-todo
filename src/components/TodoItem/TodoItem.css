@@ -17,7 +17,6 @@
 }
 .TodoItem-p--complete {
     text-decoration: line-through;
-    color: gold;
 }
 
 .Icon {
@@ -29,7 +28,7 @@
     width: 48px;
     font-size: 24px;
     font-weight: bold;
-    /* background-color: #CCC; */
+    /* background-color: #CCC;  */
 }
 
 .Icon-check {
