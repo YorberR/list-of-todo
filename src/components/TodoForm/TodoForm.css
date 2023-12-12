@@ -1,7 +1,7 @@
 form {
     width: 90%;
     max-width: 300px;
-    background-color: rgb(119, 11, 11);
+    background-color: black;
     padding: 33px 40px;
     display: flex;
     justify-content: center;
@@ -31,7 +31,7 @@ textarea {
 }
 
 textarea::placeholder {
-    color: blue;
+    color: gold;
     font-family: 'Montserrat';
     font-weight: 400;
 }

@@ -1,5 +1,5 @@
 .TodoSearch {
-    background: black;
+    background: white;
     border-radius: 2px;
     border: 2px solid red;
     margin: 0 24px;
@@ -9,12 +9,12 @@
     text-align: center;
     font-family: 'Montserrat';
     font-weight: 400;
-    color: white;
+    color: #d4d806;
     box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
   }
   
   .TodoSearch::placeholder {
-    color: white;
+    color: black;
     font-family: 'Montserrat';
     font-weight: 400;
   }

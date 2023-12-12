@@ -32,7 +32,7 @@ function TodoForm() {
             <textarea
                 value={newTodoValue}
                 onChange={onChange}
-                placeholder="Estudiar"
+                placeholder="Ejemplo: Estudiar"
             />
             <div className="TodoForm-buttonContainer">
                 <button
