@@ -9,7 +9,8 @@ import { CreateTodoButton } from "../components/CreateTodoButton";
 import { TodosError } from "../components/TodosError"
 import { TodosLoading } from "../components/TodosLoading"
 import { EmptyTodos } from "../components/EmptyTodos";
-import { Modal } from "../components/Modal"
+import { Modal } from "../components/Modal";
+import { Footer } from "../components/Footer";
 
 function AppUI() {
     const { 
@@ -43,7 +44,6 @@ function AppUI() {
             ))}
         </TodoList>
 
-
         {openModal && (
             <Modal>
                 <TodoForm />
@@ -53,6 +53,7 @@ function AppUI() {
         <CreateTodoButton 
             setOpenModal={setOpenModal}
         />
+        <Footer />
         </React.Fragment>
     );
 }
