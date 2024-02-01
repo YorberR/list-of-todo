@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import { TodoContext } from "../components/TodoContext";
 import { TodoCounter } from "../components/TodoCounter";
 import { TodoSearch } from "../components/TodoSearch";
@@ -11,16 +12,18 @@ import { TodosLoading } from "../components/TodosLoading"
 import { EmptyTodos } from "../components/EmptyTodos";
 import { Modal } from "../components/Modal";
 import { Footer } from "../components/Footer";
+import { HideCompleted } from "../components/HideCompleted";
 
 function AppUI() {
     const { 
         error,
         loading,
         searchedTodos,
-        completeTodo,
+        changeStateTodos,
         deleteTodo,
         openModal,
         setOpenModal,
+        showTip,  
     } = React.useContext(TodoContext);
 
     return (
@@ -30,16 +33,18 @@ function AppUI() {
         
         <TodoList>
             {error && <TodosError error={error} />}
+            <HideCompleted />
             {loading && new Array(5).fill(1).map((a, i) => <TodosLoading key={i} />)}
             {!loading && !searchedTodos.length && <EmptyTodos/>}
 
             {searchedTodos.map((todo) => (
                 <TodoItem
-                    key={todo.text}
+                    key={todo.id}
                     text={todo.text}
                     completed={todo.completed}
-                    onComplete={() => completeTodo(todo.text)}
-                    onDelete={() => deleteTodo(todo.text)}
+                    onComplete={() => changeStateTodos(todo.id)}
+                    onDelete={() => deleteTodo(todo.id)}
+                    onSeen={() => showTip(todo)}
                 />
             ))}
         </TodoList>
