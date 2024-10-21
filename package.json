@@ -42,6 +42,6 @@
   },
   "homepage": "https:///YorberR.github.io/list-of-todo",
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^5.0.0"
   }
 }
