@@ -1,6 +1,30 @@
 .TodoCounter {
-    font-size: 24px;
     text-align: center;
+    margin: 0 0 40px 0;
+    padding: 0;
+}
+
+.TodoCounter-title {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.TodoCounter-date {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
     margin: 0;
-    padding: 48px;
-  }
+}
+
+@media (max-width: 480px) {
+    .TodoCounter-title {
+        font-size: 36px;
+    }
+    
+    .TodoCounter-date {
+        font-size: 14px;
+    }
+}

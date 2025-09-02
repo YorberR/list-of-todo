@@ -1,13 +1,75 @@
-body {
+* {
+  font-family: "Inter", "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
-  background: black ;
   color: white;
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1a1f2e;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
 #root {
-  margin: 0 24px;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 40px 24px;
   position: relative;
-  min-height: 84vh;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.TodoActions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+.TodoSearchSection {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.TodoSearchSection .TodoSearch {
+    max-width: 400px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    #root {
+        padding: 20px 16px;
+    }
+    
+    .TodoActions {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .TodoSearchSection {
+        margin: 20px 0;
+        padding: 0 16px;
+    }
 }

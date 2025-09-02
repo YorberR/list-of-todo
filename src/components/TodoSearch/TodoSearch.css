@@ -1,24 +1,111 @@
 .TodoSearch {
-    background: white;
-    border-radius: 2px;
-    border: 2px solid red;
-    margin: 0 24px;
-    height: 64px;
-    width: calc(100% - 62px);
-    font-size: 24px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.TodoSearch-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.TodoSearch-icon {
+    position: absolute;
+    left: 16px;
+    color: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+    pointer-events: none;
+    width: 14px;
+    height: 14px;
+}
+
+.TodoSearch-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 12px 48px 12px 48px;
+    font-size: 14px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.TodoSearch-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.TodoSearch-input:focus {
+    outline: none;
+    border-color: rgba(74, 144, 226, 0.4);
+    background: rgba(74, 144, 226, 0.1);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+@media (max-width: 768px) {
+    .TodoSearch {
+        flex: none;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .TodoSearch-input {
+        padding: 10px 40px 10px 40px;
+        font-size: 13px;
+        height: 36px;
+    }
+    
+    .TodoSearch-icon {
+        left: 12px;
+    }
+    
+    .TodoSearch-clear {
+        right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.TodoSearch-clear {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    width: 24px;
+    height: 24px;
+}
+
+.TodoSearch-clear:hover {
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.TodoSearch-results {
+    margin-top: 8px;
+    padding: 0 4px;
     text-align: center;
-    font-family: 'Montserrat';
-    font-weight: 400;
-    color: #d4d806;
-    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
-  }
-  
-  .TodoSearch::placeholder {
-    color: black;
-    font-family: 'Montserrat';
-    font-weight: 400;
-  }
-  
-  .TodoSearch:focus {
-    outline-Scolor: #d4d806;
-  }
+}
+
+.TodoSearch-count {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.TodoSearch-no-results {
+    font-size: 12px;
+    color: rgba(255, 165, 0, 0.8);
+    font-weight: 500;
+}

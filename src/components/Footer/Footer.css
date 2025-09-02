@@ -1,41 +1,39 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+    margin-top: 64px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-html {
-    font-size: 62.5%;
+
+.Footer-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
 }
-.socials-container {
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 5rem;
-  padding: 2rem 4rem;
-  background-color: #333333;
+
+.Footer-links {
+    display: flex;
+    gap: 16px;
 }
-.social {
-  width: 8rem;
-  height: 8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 1rem solid rgb(194, 194, 194);
+
+.Footer-link {
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s ease;
+    text-decoration: none;
 }
-.GitHub:hover {
-  background: black;
+
+.Footer-link:hover {
+    color: rgba(255, 255, 255, 0.8);
 }
-.linkedin:hover {
-  background: linear-gradient(45deg, #134ac0, #316ff6, #78a3ff);
-}
-.google-plus:hover {
-  background: linear-gradient(45deg, #872419, #db4a39, #ff7061);
-}
-.social svg {
-  fill: white;
-  height: 4rem;
+
+@media (max-width: 480px) {
+    .Footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        padding: 24px 0;
+        margin-top: 48px;
+    }
 }

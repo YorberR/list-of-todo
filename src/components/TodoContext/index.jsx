@@ -11,56 +11,55 @@ function TodoProvider(props) {
     error,
     } = useLocalStorage('TODOS_V1', []);
 
-    const { item: hide, saveItem: saveHide } = useLocalStorage("hide", false);
+    const { item: filterType, saveItem: setFilterType } = useLocalStorage("filterType", "all");
     
     const [searchValue, setSearchValue] = React.useState('');
-    const [openModal, setOpenModal] = React.useState(false);
-    const [openTipModal, setOpenTipModal] = React.useState(false);
-    const [loadingAddTodo, setLoadingAddTodo] = React.useState(false);
 
-    const [todoSelected, setTodoSelected] = React.useState({});
 
     const completedTodos = todos.filter((todo) => !!todo.completed).length;
     const totalTodos = todos.length;
 
     let searchedTodos = todos;
 
-    const hideCompleted = () => {
-        saveHide(!hide);
+    const changeFilter = (newFilter) => {
+        setFilterType(newFilter);
     };
 
-    if (!searchValue.length >= 1) {
-        if (!hide) {
-            searchedTodos = todos;
-        } else {
-            searchedTodos = todos.filter((todo) => !todo.completed);
-        }
-    } else {
-        let newSearchedTodos = [];
-        if (hide) {
-            newSearchedTodos = todos.filter((todo) => {
-                const todoText = todo.text.toLowerCase();
-                const searchText = searchValue.toLowerCase();
-                return todoText.includes(searchText);
-            });
+    const applyFilters = () => {
+        let filteredTodos = todos;
 
-            searchedTodos = newSearchedTodos.filter((todo) => !todo.completed);
-        } else {
-            searchedTodos = todos.filter((todo) => {
-                const todoText = todo.text.toLowerCase();
-                const searchText = searchValue.toLowerCase();
-                return todoText.includes(searchText);
-            });
+        switch (filterType) {
+            case 'active':
+                filteredTodos = filteredTodos.filter(todo => !todo.completed);
+                break;
+            case 'completed':
+                filteredTodos = filteredTodos.filter(todo => todo.completed);
+                break;
+            case 'all':
+            default:
+                break;
         }
-    }
+
+        if (searchValue.trim().length > 0) {
+            const searchText = searchValue.toLowerCase().trim();
+            filteredTodos = filteredTodos.filter(todo => 
+                todo.text.toLowerCase().includes(searchText)
+            );
+        }
+
+        return filteredTodos;
+    };
+
+    searchedTodos = applyFilters();
 
     const addTodo = (text) => {
+        if (!text.trim()) return;
+        
         const newTodos = [...todos];
         newTodos.push({
-            id: Date.now(),
+            id: Date.now() + Math.random(),
             completed: false,
-            text: text,
-            seen: false,
+            text: text.trim(),
         });
         saveTodos(newTodos);
     };
@@ -72,26 +71,20 @@ function TodoProvider(props) {
         saveTodos(newTodos);
     };
 
-    const deleteTodo = (text) => {
-        const todoIndex = todos.findIndex(todo => todo.text === text);
+    const deleteTodo = (id) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos];
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
     };
 
-    const showTip = (todo) => {
-        setTodoSelected(todo);
-        const todoIndex = todos.findIndex((ttodo) => ttodo.id === todo.id);
-        const newTodos = [...todos];
-        if (!newTodos[todoIndex].seen) newTodos[todoIndex].seen = true;
-        saveTodos(newTodos);
-        setOpenTipModal(true);
-    };
+
 
     return (
         <TodoContext.Provider value={{
             loading,
             error,
+            todos,
             totalTodos,
             completedTodos,
             searchValue,
@@ -99,16 +92,9 @@ function TodoProvider(props) {
             searchedTodos,
             changeStateTodos,
             deleteTodo,
-            openModal,
-            setOpenModal,
-            openTipModal,
-            setOpenTipModal,
             addTodo,
-            hide,
-            hideCompleted,
-            showTip,
-            loadingAddTodo,
-            todoSelected,
+            filterType,
+            changeFilter,
         }}>
             {props.children}
         </TodoContext.Provider>

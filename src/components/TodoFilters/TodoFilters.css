@@ -1,0 +1,70 @@
+.TodoFilters {
+    margin: 16px 0;
+}
+
+.TodoFilters-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.TodoFilters-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.TodoFilters-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+.TodoFilters-button.active {
+    background: rgba(74, 144, 226, 0.2);
+    border-color: rgba(74, 144, 226, 0.4);
+    color: #4a90e2;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+.TodoFilters-label {
+    font-weight: 600;
+}
+
+.TodoFilters-count {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+.TodoFilters-button.active .TodoFilters-count {
+    background: rgba(74, 144, 226, 0.3);
+    color: #ffffff;
+}
+
+@media (max-width: 480px) {
+    .TodoFilters-container {
+        gap: 6px;
+    }
+    
+    .TodoFilters-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
