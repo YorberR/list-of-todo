@@ -28,18 +28,6 @@ function TodoItem(props) {
             </div>
             <div className="TodoItem-actions">
                 <button 
-                    className="TodoItem-action TodoItem-action--star"
-                    title="Marcar como importante"
-                >
-                    ☆
-                </button>
-                <button 
-                    className="TodoItem-action TodoItem-action--edit"
-                    title="Editar tarea"
-                >
-                    ✏️
-                </button>
-                <button 
                     className="TodoItem-action TodoItem-action--delete"
                     onClick={handleDelete}
                     title="Eliminar tarea"
