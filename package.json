@@ -40,5 +40,15 @@
   "homepage": "https://yorberr.github.io/list-of-todo",
   "devDependencies": {
     "gh-pages": "^6.2.0"
+  },
+  "overrides": {
+    "nth-check": "^2.1.1",
+    "form-data": "^4.0.0",
+    "tar-fs": "^3.0.6",
+    "validator": "^13.11.0",
+    "js-yaml": "^4.1.0",
+    "on-headers": "^1.0.2",
+    "formidable": "^3.5.1",
+    "postcss": "^8.4.38"
   }
 }
